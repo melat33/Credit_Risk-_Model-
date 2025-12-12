@@ -1,0 +1,5 @@
+data_quality: true
+documentation: true
+model_explainability: required
+basel_alignment: required
+regulatory_risk_review: required
