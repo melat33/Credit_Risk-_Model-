@@ -1,3 +1,0 @@
-priority,treatment,rationale,basel_ii
-Critical,Remove and document justification,High percentage indicating potential data quality issues,Requires extensive documentation
-Critical,Create separate fraud detection model,Outliers strongly correlated with fraud,Required for risk management
