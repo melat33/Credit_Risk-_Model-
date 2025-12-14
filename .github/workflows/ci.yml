@@ -1,0 +1,84 @@
+# .github/workflows/ci.yml
+
+name: CI - Run EDA & Tests
+
+# Controls when the workflow runs
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs
+jobs:
+  # This job runs your exploratory data analysis notebook
+  run-eda:
+    runs-on: ubuntu-latest
+    env:
+      # It is best practice to pass secrets via environment variables
+      SECRETS_CONTEXT: ${{ toJson(secrets) }}
+
+    steps:
+    # Step 1: Checkout the code
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Step 2: Set up the correct Python version
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    # Step 3: Install project dependencies
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        # First, install core requirements. Create a `requirements.txt` in your project root.
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        # Install additional packages needed for notebook execution
+        pip install jupyter nbconvert ipykernel pandas scikit-learn matplotlib seaborn
+
+    # Step 4: Execute the EDA Notebook
+    # Using nbconvert to run the notebook and save the output.
+    - name: Run EDA Notebook
+      run: |
+        # Replace 'notebooks/eda.ipynb' with your actual notebook path
+        jupyter nbconvert --to notebook --execute notebooks/eda.ipynb --output notebooks/eda_executed.ipynb
+      continue-on-error: false # Stops the job if the notebook has an error
+
+    # (Optional) Step 5: Upload the executed notebook as an artifact
+    # This lets you download the notebook with all cell outputs after the run.
+    - name: Upload Notebook Artifact
+      uses: actions/upload-artifact@v3
+      if: always() # Upload even if a previous step fails
+      with:
+        name: eda-notebook-output
+        path: notebooks/eda_executed.ipynb
+        retention-days: 7
+
+  # This job runs unit tests for your source code
+  run-tests:
+    runs-on: ubuntu-latest
+    # This job depends on the `run-eda` job completing successfully first.
+    needs: run-eda
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install pytest # Ensure pytest is available
+
+    - name: Run unit tests with pytest
+      # Run tests from the `tests/` directory. Assumes you have test files like `test_data_processing.py`.
+      run: |
+        python -m pytest tests/ -v --tb=short
