@@ -1,6 +1,0 @@
-pd_methodology: "logistic_regression_woe"
-lgd_assumption: 0.45
-ead_method: "transaction_based"
-interpretability_required: true
-documentation_required: true
-validation_frequency: "monthly"

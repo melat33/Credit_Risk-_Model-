@@ -1,5 +1,0 @@
-max_pd_threshold: 0.30
-medium_risk_threshold: 0.15
-max_portfolio_concentration: 0.40
-country_limits:
-  UGX: 0.50
