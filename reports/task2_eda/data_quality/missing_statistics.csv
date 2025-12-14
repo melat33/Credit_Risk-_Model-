@@ -1,0 +1,22 @@
+column,total_missing,missing_percentage,data_type,unique_values,suggested_imputation,risk_level,basel_ii_compliance
+TransactionId,0,0.0,object,95662,,Low Risk (<5%),Compliant
+BatchId,0,0.0,object,94809,,Low Risk (<5%),Compliant
+AccountId,0,0.0,object,3633,,Low Risk (<5%),Compliant
+SubscriptionId,0,0.0,object,3627,,Low Risk (<5%),Compliant
+CustomerId,0,0.0,object,3742,,Low Risk (<5%),Compliant
+CurrencyCode,0,0.0,object,1,,Low Risk (<5%),Compliant
+CountryCode,0,0.0,int64,1,,Low Risk (<5%),Compliant
+ProviderId,0,0.0,object,6,,Low Risk (<5%),Compliant
+ProductId,0,0.0,object,23,,Low Risk (<5%),Compliant
+ProductCategory,0,0.0,object,9,,Low Risk (<5%),Compliant
+ChannelId,0,0.0,object,4,,Low Risk (<5%),Compliant
+Amount,0,0.0,float64,1676,,Low Risk (<5%),Compliant
+Value,0,0.0,int64,1517,,Low Risk (<5%),Compliant
+TransactionStartTime,0,0.0,object,94556,,Low Risk (<5%),Compliant
+PricingStrategy,0,0.0,int64,4,,Low Risk (<5%),Compliant
+FraudResult,0,0.0,int64,2,,Low Risk (<5%),Compliant
+TransactionStartTime_hour,0,0.0,int64,24,,Low Risk (<5%),Compliant
+TransactionStartTime_day,0,0.0,int64,31,,Low Risk (<5%),Compliant
+TransactionStartTime_month,0,0.0,int64,4,,Low Risk (<5%),Compliant
+TransactionStartTime_year,0,0.0,int64,2,,Low Risk (<5%),Compliant
+TransactionStartTime_dayofweek,0,0.0,int64,7,,Low Risk (<5%),Compliant
