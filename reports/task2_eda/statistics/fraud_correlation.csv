@@ -1,4 +1,0 @@
-method,risk_ratio,fraud_capture_rate,p_value,is_significant
-Isolation Forest,569.9470401728163,98.44559585492227,0.0,True
-Local Outlier Factor,0.1420920598768794,1.5544041450777202,0.00014758023509499303,True
-One-Class SVM,114.94058061821218,92.74611398963731,0.0,True
