@@ -1,0 +1,14 @@
+artifact_uri: file:///d:/10 acadamy/Credit Risk  Model/notebooks/task5/mlruns/744641336423089897/2de5cc746de84c9bb8c5b92cc8bf768c/artifacts
+end_time: 1765869417823
+entry_point_name: ''
+experiment_id: '744641336423089897'
+lifecycle_stage: active
+run_id: 2de5cc746de84c9bb8c5b92cc8bf768c
+run_name: Logistic Regression_production
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1765869392753
+status: 3
+tags: []
+user_id: Meliiii

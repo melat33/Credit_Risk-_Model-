@@ -1,0 +1,15 @@
+creation_timestamp: 1765869416478
+current_stage: Production
+deployment_job_state: null
+description: null
+last_updated_timestamp: 1765869417439
+model_id: m-e4828e5fcccd48e9983b673ab0637c5b
+name: bati_bank_credit_model
+run_id: 2de5cc746de84c9bb8c5b92cc8bf768c
+run_link: null
+source: models:/m-e4828e5fcccd48e9983b673ab0637c5b
+status: READY
+status_message: null
+storage_location: file:///d:/10 acadamy/Credit Risk  Model/notebooks/task5/mlruns/744641336423089897/models/m-e4828e5fcccd48e9983b673ab0637c5b/artifacts
+user_id: null
+version: 1
