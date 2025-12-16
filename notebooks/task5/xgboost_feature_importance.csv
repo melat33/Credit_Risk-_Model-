@@ -1,0 +1,18 @@
+feature,importance
+customer_value,0.7707499
+cluster,0.15613471
+recency_days,0.053407863
+Unnamed: 0,0.005338221
+std_transaction_value,0.004031673
+total_monetary_value,0.00355345
+engagement_index,0.003107746
+transaction_frequency,0.0025906186
+avg_transaction_value,0.0010857357
+frequency_score,0.0
+recency_score,0.0
+monetary_score,0.0
+value_concentration,0.0
+value_per_transaction,0.0
+transaction_size_variability,0.0
+estimated_tenure_months,0.0
+monthly_activity,0.0

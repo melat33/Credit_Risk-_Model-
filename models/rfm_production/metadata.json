@@ -1,0 +1,26 @@
+{
+    "model_type": "RandomForest",
+    "training_date": "2025-12-16T11:14:28.500830",
+    "features": [
+        "recency_days",
+        "transaction_frequency",
+        "total_monetary_value"
+    ],
+    "metrics": {
+        "roc_auc": 0.9994741251760344,
+        "f1": 0.9832134292565947,
+        "precision": 0.9761904761904762,
+        "recall": 0.9903381642512077,
+        "false_negative_rate": 0.009661835748792313
+    },
+    "basel_compliance": {
+        "roc_auc_met": true,
+        "fnr_met": true,
+        "overall": true
+    },
+    "data_info": {
+        "total_samples": 3742,
+        "high_risk_samples": 1033,
+        "high_risk_percentage": 27.60555852485302
+    }
+}

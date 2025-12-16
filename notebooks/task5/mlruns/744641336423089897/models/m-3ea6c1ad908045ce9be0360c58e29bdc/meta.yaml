@@ -1,0 +1,10 @@
+artifact_location: file:///d:/10 acadamy/Credit Risk  Model/notebooks/task5/mlruns/744641336423089897/models/m-3ea6c1ad908045ce9be0360c58e29bdc/artifacts
+creation_timestamp: 1765868812059
+experiment_id: '744641336423089897'
+last_updated_timestamp: 1765868843650
+model_id: m-3ea6c1ad908045ce9be0360c58e29bdc
+model_type: null
+name: xgboost_model
+source_run_id: 700600ab0aaf40599d32fed8250cab33
+status: 2
+status_message: null

@@ -1,0 +1,41 @@
+{
+    "model_name": "Logistic Regression",
+    "training_date": "2025-12-16T10:18:49.924506",
+    "performance": {
+        "roc_auc": 1.0,
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "false_negative_rate": 0.0
+    },
+    "features": [
+        "Unnamed: 0",
+        "recency_days",
+        "transaction_frequency",
+        "total_monetary_value",
+        "avg_transaction_value",
+        "std_transaction_value",
+        "cluster",
+        "recency_score",
+        "frequency_score",
+        "monetary_score",
+        "customer_value",
+        "engagement_index",
+        "value_concentration",
+        "value_per_transaction",
+        "transaction_size_variability",
+        "estimated_tenure_months",
+        "monthly_activity"
+    ],
+    "random_seed": 42,
+    "model_type": "LogisticRegression",
+    "business_impact": {
+        "estimated_savings": "$0",
+        "risk_coverage": "100.0%"
+    },
+    "basel_ii_compliance": {
+        "roc_auc_met": true,
+        "fnr_met": true,
+        "overall": true
+    }
+}
