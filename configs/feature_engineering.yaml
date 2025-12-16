@@ -1,0 +1,166 @@
+# COMPLETE Feature Engineering Configuration
+# Basel II/III Compliant Feature Engineering Rules
+
+version: "1.0"
+project: "Bati Bank Credit Risk Model"
+author: "Analytics Engineering Team"
+date: "2024-12-15"
+
+# ===== REQUIRED FEATURES (Task 3 Instructions) =====
+required_features:
+  # 1. Aggregate Features
+  aggregates:
+    total_transaction_amount:
+      enabled: true
+      calculation: "sum"
+      column: "Value"
+      description: "Total monetary value of all transactions per customer"
+      business_justification: "Measures customer's transaction volume (Capacity)"
+      basel_reference: "Para 452 - Cash flow assessment"
+      
+    avg_transaction_amount:
+      enabled: true
+      calculation: "mean"
+      column: "Value"
+      description: "Average transaction amount per customer"
+      business_justification: "Indicates typical transaction size"
+      basel_reference: "Para 414 - Transaction patterns"
+      
+    transaction_count:
+      enabled: true
+      calculation: "count"
+      column: "TransactionId"
+      description: "Number of transactions per customer"
+      business_justification: "Frequency of engagement (Character)"
+      basel_reference: "Para 417 - Behavioral consistency"
+      
+    std_transaction_amount:
+      enabled: true
+      calculation: "std"
+      column: "Value"
+      description: "Standard deviation of transaction amounts"
+      business_justification: "Volatility in spending patterns"
+      basel_reference: "Para 452 - Cash flow stability"
+  
+  # 2. Temporal Features (Extracted from TransactionStartTime)
+  temporal:
+    transaction_hour:
+      enabled: true
+      extractor: "hour"
+      description: "Hour of day when transaction occurred (0-23)"
+      business_justification: "Time patterns may indicate risk behavior"
+      
+    transaction_day:
+      enabled: true
+      extractor: "day"
+      description: "Day of month (1-31)"
+      business_justification: "Payment cycle patterns"
+      
+    transaction_month:
+      enabled: true
+      extractor: "month"
+      description: "Month of year (1-12)"
+      business_justification: "Seasonal spending patterns"
+      
+    transaction_year:
+      enabled: true
+      extractor: "year"
+      description: "Year of transaction"
+      business_justification: "Long-term trend analysis"
+
+# ===== ADVANCED FEATURES (For Better Performance) =====
+advanced_features:
+  behavioral_metrics:
+    recency_days:
+      enabled: true
+      calculation: "days_since_last_transaction"
+      description: "Days since last transaction"
+      
+    frequency_30d:
+      enabled: true
+      calculation: "transactions_last_30_days"
+      description: "Transaction count in last 30 days"
+      
+    monetary_90d:
+      enabled: true
+      calculation: "sum_last_90_days"
+      description: "Total amount in last 90 days"
+      
+    transaction_velocity:
+      enabled: true
+      calculation: "transactions_per_day"
+      description: "Average transactions per active day"
+  
+  financial_metrics:
+    amount_to_frequency_ratio:
+      enabled: true
+      calculation: "avg_amount_per_transaction"
+      description: "Average amount per transaction"
+      
+    transaction_consistency_score:
+      enabled: true
+      calculation: "1 - (std_amount/mean_amount)"
+      description: "Consistency in transaction amounts"
+      
+    weekend_ratio:
+      enabled: true
+      calculation: "weekend_transactions / total_transactions"
+      description: "Proportion of weekend transactions"
+
+# ===== PROCESSING CONFIGURATION =====
+processing:
+  # Encoding Strategy
+  categorical_encoding:
+    method: "weight_of_evidence"  # Options: woe, onehot, label, frequency
+    onehot_max_categories: 15
+    rare_category_threshold: 0.01
+    handle_unknown: "encode"
+    
+  # Missing Values
+  missing_values:
+    strategy: "impute"
+    numerical_method: "median"
+    categorical_method: "mode"
+    create_missing_indicators: true
+    max_missing_percentage: 0.3
+    
+  # Scaling
+  scaling:
+    method: "robust"  # robust, standard, minmax
+    with_centering: true
+    with_scaling: true
+    quantile_range: [25, 75]
+    
+  # Outlier Treatment
+  outliers:
+    method: "cap"  # cap, remove, ignore
+    lower_percentile: 1
+    upper_percentile: 99
+    create_outlier_flags: true
+
+# ===== WoE/IV CONFIGURATION =====
+woe_iv:
+  min_bin_size: 50
+  max_bins: 10
+  min_iv_for_selection: 0.02
+  iv_thresholds:
+    useless: 0.0
+    weak: 0.02
+    medium: 0.1
+    strong: 0.3
+    suspicious: 0.5
+  monotonic_binning: true
+  handle_unseen: "return_nan"
+  
+# ===== FEATURE SELECTION =====
+feature_selection:
+  correlation_threshold: 0.85
+  variance_threshold: 0.01
+  method: "iv_correlation"  # iv, correlation, recursive, variance
+  
+# ===== VALIDATION =====
+validation:
+  stability_threshold: 0.25  # PSI threshold
+  generate_reports: true
+  save_artifacts: true
+  random_state: 42

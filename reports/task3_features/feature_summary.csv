@@ -1,0 +1,9 @@
+feature_name,data_type,n_unique,missing_values,missing_pct
+total_transaction_amount,int64,1886,0,0.0
+avg_transaction_amount,float64,2072,0,0.0
+transaction_count,int64,221,0,0.0
+std_transaction_amount,float64,2235,0,0.0
+avg_transaction_hour,float64,1347,0,0.0
+avg_transaction_day,float64,1488,0,0.0
+avg_transaction_month,float64,972,0,0.0
+avg_transaction_year,float64,533,0,0.0
