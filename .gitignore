@@ -3,6 +3,10 @@ venv/
 data/
 
 data/raw/*
-
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/external/*
+!data/external/.gitkeep
 
 __pycache__/
