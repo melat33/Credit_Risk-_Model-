@@ -8,15 +8,20 @@
         "recall": 0.9935483870967742,
         "false_negative_rate": 0.006451612903225823
     },
-    "basel_ii_compliance": {
-        "roc_auc_met": true,
-        "fnr_met": true,
-        "overall": true
-    },
     "features": [
         "recency_days",
         "transaction_frequency",
         "total_monetary_value"
     ],
-    "random_seed": 42
+    "random_seed": 42,
+    "model_type": "RandomForestClassifier",
+    "business_impact": {
+        "estimated_savings": "$0",
+        "risk_coverage": "100.0%"
+    },
+    "basel_ii_compliance": {
+        "roc_auc_met": true,
+        "fnr_met": true,
+        "overall": true
+    }
 }

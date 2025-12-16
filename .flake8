@@ -1,0 +1,12 @@
+[flake8]
+max-line-length = 100
+exclude = .git,__pycache__,build,dist,migrations,.venv,venv
+ignore = 
+    E203,  # Whitespace before ':'
+    W503,  # Line break before binary operator
+    E501,  # Line too long (handled by black)
+    C901   # Too complex
+per-file-ignores =
+    __init__.py:F401
+select = 
+    B,C,E,F,W,T4,B9
