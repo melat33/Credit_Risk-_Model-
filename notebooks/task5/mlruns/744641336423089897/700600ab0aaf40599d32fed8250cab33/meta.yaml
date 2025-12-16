@@ -1,0 +1,14 @@
+artifact_uri: file:///d:/10 acadamy/Credit Risk  Model/notebooks/task5/mlruns/744641336423089897/700600ab0aaf40599d32fed8250cab33/artifacts
+end_time: 1765868844357
+entry_point_name: ''
+experiment_id: '744641336423089897'
+lifecycle_stage: active
+run_id: 700600ab0aaf40599d32fed8250cab33
+run_name: xgboost
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1765868806322
+status: 3
+tags: []
+user_id: Meliiii

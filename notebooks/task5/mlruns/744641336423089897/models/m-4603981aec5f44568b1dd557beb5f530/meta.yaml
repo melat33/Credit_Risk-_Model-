@@ -1,0 +1,10 @@
+artifact_location: file:///d:/10 acadamy/Credit Risk  Model/notebooks/task5/mlruns/744641336423089897/models/m-4603981aec5f44568b1dd557beb5f530/artifacts
+creation_timestamp: 1765869348046
+experiment_id: '744641336423089897'
+last_updated_timestamp: 1765869368392
+model_id: m-4603981aec5f44568b1dd557beb5f530
+model_type: null
+name: model
+source_run_id: 9730aa833a1f40aeabf6625ca4050c81
+status: 2
+status_message: null
